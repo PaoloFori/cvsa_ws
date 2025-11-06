@@ -1,60 +1,60 @@
 [submodule "src/analysis_cvsa"]
 	path = src/analysis_cvsa
 	url = git@github.com:neurorobotics-iaslab/analysis_cvsa.git
-	branch = simple_cvsa
+	branch = ic_cvsa
 [submodule "src/bag_cvsa"]
 	path = src/bag_cvsa
 	url = git@github.com:neurorobotics-iaslab/bag_cvsa.git
-	branch = simple_cvsa
+	branch = ic_cvsa
 [submodule "src/eye_decoder"]
 	path = src/eye_decoder
 	url = git@github.com:neurorobotics-iaslab/eye_decoder.git
-	branch = simple_cvsa
+	branch = ic_cvsa
 [submodule "src/eye_motion_online"]
 	path = src/eye_motion_online
 	url = git@github.com:neurorobotics-iaslab/eye_motion_online.git
-	branch = simple_cvsa
+	branch = ic_cvsa
 [submodule "src/feedback_cvsa"]
 	path = src/feedback_cvsa
 	url = git@github.com:neurorobotics-iaslab/feedback_cvsa.git
-	branch = simple_cvsa
+	branch = ic_cvsa
 [submodule "src/gui_trialSelection"]
 	path = src/gui_trialSelection
 	url = git@github.com:PaoloFori/gui_trialSelection.git
-	branch = simple_cvsa
+	branch = ic_cvsa
 [submodule "src/imu_cvsa"]
 	path = src/imu_cvsa
 	url = git@github.com:neurorobotics-iaslab/imu_cvsa.git
-	branch = simple_cvsa
+	branch = ic_cvsa
 [submodule "src/launchers_cvsa"]
 	path = src/launchers_cvsa
 	url = git@github.com:neurorobotics-iaslab/launchers_cvsa.git
-	branch = simple_cvsa
+	branch = ic_cvsa
 [submodule "src/processing_cvsa"]
 	path = src/processing_cvsa
 	url = git@github.com:neurorobotics-iaslab/processing_cvsa.git
-	branch = simple_cvsa
+	branch = ic_cvsa
 [submodule "src/qda_cvsa"]
 	path = src/qda_cvsa
 	url = git@github.com:neurorobotics-iaslab/qda_cvsa.git
-	branch = simple_cvsa
+	branch = ic_cvsa
 [submodule "src/ur_cvsa"]
 	path = src/ur_cvsa
 	url = git@github.com:neurorobotics-iaslab/ur_cvsa.git
-	branch = simple_cvsa
+	branch = ic_cvsa
 [submodule "src/rosneuro_integrator"]
 	path = src/rosneuro_integrator
 	url = git@github.com:PaoloFori/rosneuro_integrator.git
-	branch = simple_cvsa
+	branch = ic_cvsa
 [submodule "src/rosneuro_integrator_buffer"]
 	path = src/rosneuro_integrator_buffer
 	url = git@github.com:PaoloFori/rosneuro_integrator_buffer.git
-	branch = simple_cvsa
+	branch = ic_cvsa
 [submodule "src/rosneuro_integrator_exponential"]
 	path = src/rosneuro_integrator_exponential
 	url = git@github.com:PaoloFori/rosneuro_integrator_exponential.git
-	branch = simple_cvsa
+	branch = ic_cvsa
 [submodule "src/test_pipeline"]
 	path = src/test_pipeline
 	url = git@github.com:PaoloFori/test_pipeline.git
-	branch = simple_cvsa
+	branch = ic_cvsa
