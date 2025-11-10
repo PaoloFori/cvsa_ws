@@ -58,3 +58,7 @@
 	path = src/test_pipeline
 	url = git@github.com:PaoloFori/test_pipeline.git
 	branch = ic_cvsa
+[submodule "src/kmeans_cvsa"]
+	path = src/kmeans_cvsa
+	url = git@github.com:PaoloFori/kmeans_cvsa.git
+	branch = ic_cvsa
