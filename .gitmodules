@@ -62,3 +62,7 @@
 	path = src/kmeans_cvsa
 	url = git@github.com:PaoloFori/kmeans_cvsa.git
 	branch = ic_cvsa
+[submodule "src/artifacts_cvsa"]
+	path = src/artifacts_cvsa
+	url = git@github.com:PaoloFori/artifacts_cvsa.git
+	branch = ic_cvsa
