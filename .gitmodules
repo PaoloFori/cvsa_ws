@@ -66,3 +66,7 @@
 	path = src/artifacts_cvsa
 	url = git@github.com:PaoloFori/artifacts_cvsa.git
 	branch = ic_cvsa
+[submodule "src/gmm_cvsa"]
+	path = src/gmm_cvsa
+	url = git@github.com:PaoloFori/gmm_cvsa.git
+	branch = ic_cvsa
