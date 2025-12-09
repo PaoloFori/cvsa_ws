@@ -70,3 +70,6 @@
 	path = src/gmm_cvsa
 	url = git@github.com:PaoloFori/gmm_cvsa.git
 	branch = ic_cvsa
+[submodule "src/rosneuro_filters_car"]
+	path = src/rosneuro_filters_car
+	url = git@github.com:PaoloFori/rosneuro_filters_car.git
