@@ -73,3 +73,6 @@
 [submodule "src/rosneuro_filters_car"]
 	path = src/rosneuro_filters_car
 	url = git@github.com:PaoloFori/rosneuro_filters_car.git
+[submodule "src/rosneuro_filters_csd"]
+	path = src/rosneuro_filters_csd
+	url = git@github.com:neurorobotics-iaslab/rosneuro_filters_csd.git
