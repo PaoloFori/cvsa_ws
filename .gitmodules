@@ -1,46 +1,46 @@
 [submodule "src/analysis_cvsa"]
-	path = src/analysis_cvsa
-	url = git@github.com:neurorobotics-iaslab/analysis_cvsa.git
+	path = src/analysis_bci
+	url = git@github.com:PaoloFori/analysis_bci.git
 	branch = ic_cvsa
 [submodule "src/bag_cvsa"]
-	path = src/bag_cvsa
-	url = git@github.com:neurorobotics-iaslab/bag_cvsa.git
+	path = src/bag_bci
+	url = git@github.com:PaoloFori/bag_bci.git
 	branch = ic_cvsa
 [submodule "src/eye_decoder"]
 	path = src/eye_decoder
-	url = git@github.com:neurorobotics-iaslab/eye_decoder.git
+	url = git@github.com:PaoloFori/eye_decoder.git
 	branch = ic_cvsa
 [submodule "src/eye_motion_online"]
 	path = src/eye_motion_online
-	url = git@github.com:neurorobotics-iaslab/eye_motion_online.git
+	url = git@github.com:PaoloFori/eye_motion_online.git
 	branch = ic_cvsa
 [submodule "src/feedback_cvsa"]
-	path = src/feedback_cvsa
-	url = git@github.com:neurorobotics-iaslab/feedback_cvsa.git
+	path = src/feedback_bci
+	url = git@github.com:PaoloFori/feedback_bci.git
 	branch = ic_cvsa
 [submodule "src/gui_trialSelection"]
 	path = src/gui_trialSelection
 	url = git@github.com:PaoloFori/gui_trialSelection.git
 	branch = ic_cvsa
 [submodule "src/imu_cvsa"]
-	path = src/imu_cvsa
-	url = git@github.com:neurorobotics-iaslab/imu_cvsa.git
+	path = src/imu_bci
+	url = git@github.com:PaoloFori/imu_bci.git
 	branch = ic_cvsa
 [submodule "src/launchers_cvsa"]
-	path = src/launchers_cvsa
-	url = git@github.com:neurorobotics-iaslab/launchers_cvsa.git
+	path = src/launchers_bci
+	url = git@github.com:PaoloFori/launchers_bci.git
 	branch = ic_cvsa
 [submodule "src/processing_cvsa"]
-	path = src/processing_cvsa
-	url = git@github.com:neurorobotics-iaslab/processing_cvsa.git
+	path = src/processing_bci
+	url = git@github.com:PaoloFori/processing_bci.git
 	branch = ic_cvsa
 [submodule "src/qda_cvsa"]
-	path = src/qda_cvsa
-	url = git@github.com:neurorobotics-iaslab/qda_cvsa.git
+	path = src/qda_bci
+	url = git@github.com:PaoloFori/qda_bci.git
 	branch = ic_cvsa
 [submodule "src/ur_cvsa"]
-	path = src/ur_cvsa
-	url = git@github.com:neurorobotics-iaslab/ur_cvsa.git
+	path = src/ur_bci
+	url = git@github.com:PaoloFori/ur_bci.git
 	branch = ic_cvsa
 [submodule "src/rosneuro_integrator"]
 	path = src/rosneuro_integrator
@@ -59,20 +59,20 @@
 	url = git@github.com:PaoloFori/test_pipeline.git
 	branch = ic_cvsa
 [submodule "src/kmeans_cvsa"]
-	path = src/kmeans_cvsa
-	url = git@github.com:PaoloFori/kmeans_cvsa.git
+	path = src/kmeans_bci
+	url = git@github.com:PaoloFori/kmeans_bci.git
 	branch = ic_cvsa
 [submodule "src/artifacts_cvsa"]
-	path = src/artifacts_cvsa
-	url = git@github.com:PaoloFori/artifacts_cvsa.git
+	path = src/artifacts_bci
+	url = git@github.com:PaoloFori/artifacts_bci.git
 	branch = ic_cvsa
 [submodule "src/gmm_cvsa"]
-	path = src/gmm_cvsa
-	url = git@github.com:PaoloFori/gmm_cvsa.git
+	path = src/gmm_bci
+	url = git@github.com:PaoloFori/gmm_bci.git
 	branch = ic_cvsa
 [submodule "src/rosneuro_filters_car"]
 	path = src/rosneuro_filters_car
 	url = git@github.com:PaoloFori/rosneuro_filters_car.git
 [submodule "src/rosneuro_filters_csd"]
 	path = src/rosneuro_filters_csd
-	url = git@github.com:neurorobotics-iaslab/rosneuro_filters_csd.git
+	url = git@github.com:PaoloFori/rosneuro_filters_csd.git
