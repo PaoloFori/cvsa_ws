@@ -44,3 +44,10 @@ The entire system is managed via ROS launch files, offering significant flexibil
 
 * **Feedback:** The `UR5` robot node can be omitted from the launch file. If disabled, the system will default to providing simple feedback on a monitor.
 * **Sensors:** Other peripheral nodes, such as `imu` and `eye_detector`, can also be easily enabled or disabled via launch file arguments.
+
+---
+
+## Download
+```
+git clone -b ic_cvsa --recursive git@github.com:PaoloFori/cvsa_ws.git
+```
