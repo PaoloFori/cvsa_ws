@@ -76,3 +76,6 @@
 [submodule "src/rosneuro_filters_csd"]
 	path = src/rosneuro_filters_csd
 	url = https://github.com/neurorobotics-iaslab/rosneuro_filters_csd.git
+[submodule "src/rosneuro_feedback_wheel"]
+	path = src/rosneuro_feedback_wheel
+	url = git@github.com:PaoloFori/rosneuro_feedback_wheel.git
