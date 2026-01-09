@@ -1,74 +1,96 @@
-# CVSA-Based Brain-Computer Interface
+# CVSA & Motor Imagery Brain-Computer Interface
 
-This repository contains the main project for a Brain-Computer Interface (BCI) based on CVSA. The primary goal of this system is to classify a user's attention (left vs. right focus) to control an external device, such as a robotic arm or an on-screen interface.
+This repository contains the main project for a Brain-Computer Interface (BCI) designed to handle both **Covert Visuospatial Attention (CVSA)** and **Motor Imagery (MI)** paradigms. The system aims to classify user intent to control external devices or virtual interfaces.
 
-##  Overview
+---
 
-The system architecture relies on a two-stage classification strategy. Instead of continuously classifying user intent, the system first determines if the user is in a state of **"Intentional Control" (IC)** or **"Non-Intentional Control" (NIC)**.
+## 📋 Overview
 
-A second classifier, trained specifically for directional focus, is then engaged *only* when the user is in the IC state.
+The system architecture is capable of supporting two distinct BCI paradigms via specialized pipelines:
+
+1.  **CVSA (Covert Visuospatial Attention):** Classifies the user's attention (left vs. right focus).
+2.  **MI (Motor Imagery):** Classifies the user's imagined movement (left vs. right).
+
+Both pipelines utilize **Gaussian Mixture Models (GMM)** for classification tasks, offering a robust statistical approach to intent detection.
+
+---
 
 ## 🤖 System Architecture
 
-### Core Hardware
+### Core Hardware & Interfaces
 * **EEG Headset:** `antenuro`
-* **Control Target:** `UR5` robotic manipulator (optional) or an on-screen monitor.
+* **Control Targets:**
+    * `UR5` robotic manipulator (optional).
+    * **Virtual Wheel:** A visual feedback interface specifically designed for Motor Imagery.
+    * On-screen monitor (simple visual cues).
 
 ### Optional Hardware
-The system is designed to be modular and can be launched with or without the following peripherals:
+The system allows for modular activation of peripherals:
 * `IMU` (Inertial Measurement Unit)
 * `eye_detector` (Eye-tracking sensor)
 
 ---
 
-## 🧠 Classification Workflow
+## 🚀 Launchers & Pipelines
 
-The BCI's logic is divided into two distinct steps:
+The system is operated using ROS launch files located in the external `launchers_bci` repository. The specific paradigm and algorithm are selected by the suffix of the launch file used:
 
-1.  **Step 1: State Classification (K-Means)**
-    * **Purpose:** To determine the user's cognitive state.
-    * **Method:** A **K-Means** clustering model analyzes incoming EEG trials.
-    * **Output:** Each trial is classified as either `Intentional Control (IC)` or `Non-Intentional Control (NIC)`.
+### 1. CVSA Pipeline (`_cvsa`)
+* **Launcher Suffix:** `*_cvsa.launch`
+* **Algorithm:** CVSA pipeline utilizing **GMM** (Gaussian Mixture Model).
+* **Goal:** Detects spatial attention.
 
-2.  **Step 2: Intent Classification (QDA)**
-    * **Purpose:** To classify the user's specific directional focus.
-    * **Method:** A **QDA (Quadratic Discriminant Analysis)** classifier, which has been specifically trained on data from the IC state.
-    * **Activation:** This classifier is **only activated** when the K-Means model reports an `IC` state.
-    * **Output:** Classifies the user's attention as `left` or `right`.
+### 2. Motor Imagery Pipeline (`_mi`)
+* **Launcher Suffix:** `*_mi.launch`
+* **Algorithm:** Motor Imagery pipeline utilizing **GMM**.
+* **Goal:** Detects imagined motor commands to control the **Virtual Wheel**.
 
 ---
 
-## 🕹️ System Usage & Workflow
+## 📡 Feedback Mechanisms & Protocols
 
-The system is operated using ROS launch files located in the external `launchers_bci` repository. The standard operational procedure consists of two main phases: **Calibration** and **Evaluation**.
+The feedback provided to the user changes depending on the active paradigm (CVSA or MI) and the experimental phase.
 
-### 1. Launching the System
-All necessary nodes are orchestrated via the launch files. Parameters such as sensor activation (IMU, Eye Tracker) or feedback mode can be toggled directly within these files.
+### A. CVSA Feedback (Audio + Visual)
+In the CVSA paradigm, the system relies on a combination of audio cues and visual targets.
 
-### 2. Workflow Phases
+1.  **Audio Feedback:**
+    * Continuous audio is played during the trial.
+    * **Calibration Configuration:** You can select the type of audio via the launch file parameters:
+        * `pink_noise`: Standard noise for concentration.
+        * `silent`: Uses a `silent.mp3` file to mute feedback during specific calibration runs if needed.
+2.  **Visual Target:**
+    * A **dot** appears in the cued zone (Left or Right) indicating where the user should focus.
 
-#### Phase A: Calibration
-Before full control is enabled, the system usually performs a calibration run to establish a baseline.
-* **Feedback:** The user receives continuous audio feedback.
-* **Audio Configuration:** The feedback behavior is controlled by the `audio_increasing` flag in the launch file:
-    * `true`: Audio intensity/pitch **increases** over time.
-    * `false`: Audio intensity **decreases** (or remains static, depending on configuration).
+### B. Motor Imagery Feedback (Visual)
+For MI, the system uses a **Virtual Wheel**:
+* **Behavior:** The wheel rotates Left or Right based on the system's real-time classification of the user's motor imagery.
 
-#### Phase B: Evaluation
-Once calibrated, the system moves to the evaluation phase where the classifiers (K-Means and QDA) are active and controlling the output.
+---
 
-### 3. Interaction Protocol & Reaction Times
-In both the Calibration and Evaluation phases, the user interaction follows a specific timing protocol:
+## ⏱️ Reaction Time (CVSA)
 
-1.  **Cue:** The system provides an initial cue.
-2.  **The "Boom" & Visual Target:** A distinct "boom" sound is played. Simultaneously, a visual target (a dot) appears on the monitor in the direction indicated by the cue (Left or Right).
-3.  **User Action (Reaction Time):**
-    * Upon seeing the visual target/hearing the boom, the user may be required to press the **Spacebar**.
-    * A dedicated ROS node is responsible for recording these reaction times.
-4.  **Timing Constraint:**
-    * The valid window to register a reaction is limited to the **duration of the boom sound**.
-    * **Default Max Duration:** `1.5 seconds`.
-    * If the spacebar is not pressed within this timeframe, the trial is marked as a "miss" or max time.
+A dedicated ROS node can be optionally launched to measure the user's reaction time during CVSA tasks.
+
+* **Trigger:** The timer starts the moment the visual **dot** appears on the screen.
+* **Action:** The user must press the **Spacebar**.
+* **Measurement:** The node records the delta between the visual stimulus and the key press.
+
+> **⚠️ CRITICAL NOTE ON CALIBRATION:**
+> If using audio feedback during calibration, be aware that the audio track might stop exactly when the visual dot appears.
+>
+> * **Risk:** The user might subconsciously learn to press the spacebar based on the *cessation of sound* rather than the visual cue.
+> * **Consequence:** This allows the user to perform the timing task without actually engaging in the CVSA mental task, potentially invalidating the calibration data.
+
+---
+
+## 🧪 Testing & Analysis
+
+The repository includes a `test` folder containing resources for validation and development.
+
+* **Pseudo-Online Analysis:** Code is provided to run "pseudo-online" analysis using pre-recorded real data.
+* **Comparison:** This allows for direct comparison between the **ROS** implementation and **Matlab** prototypes to ensure algorithmic consistency and performance verification.
+* **Unit Tests:** Various tests for individual nodes and logic blocks.
 
 ---
 
@@ -76,12 +98,13 @@ In both the Calibration and Evaluation phases, the user interaction follows a sp
 
 The entire system is managed via ROS launch files, offering significant flexibility.
 
-* **Feedback:** The `UR5` robot node can be omitted from the launch file. If disabled, the system will default to providing simple feedback on a monitor.
-* **Sensors:** Other peripheral nodes, such as `imu` and `eye_detector`, can also be easily enabled or disabled via launch file arguments.
+* **Feedback:** The `UR5` robot or `Virtual Wheel` can be enabled/disabled via arguments.
+* **Sensors:** Peripheral nodes (`imu`, `eye_detector`) can be easily toggled.
 
 ---
 
 ## Download
-```
+
+```bash
 git clone -b ic_cvsa --recursive git@github.com:PaoloFori/cvsa_ws.git
 ```
