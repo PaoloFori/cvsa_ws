@@ -80,3 +80,6 @@
 [submodule "src/rosneuro_feedback_wheel"]
 	path = src/rosneuro_feedback_wheel
 	url = git@github.com:PaoloFori/rosneuro_feedback_wheel.git
+	branch = main
+[submodule "src/artifacts_bci"]
+	branch = main
